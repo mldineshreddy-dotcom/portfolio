@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>M. Dinesh Kumar Reddy - Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #4348A8;
+      --primary-dark: #2F3275;
+      --bg: #F4F6FA;
+      --card: #FFFFFF;
+      --text-main: #1E2238;
+      --text-sub: #5C617B;
+      --chip-bg: #EAEBFD;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Roboto', sans-serif;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text-main);
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    header {
+      background-color: var(--primary);
+      color: white;
+      text-align: center;
+      padding: 16px 20px;
+      font-size: 1.3rem;
+      font-weight: 500;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+      position: relative;
+    }
+
+    .back-btn {
+      position: absolute;
+      left: 16px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: transparent;
+      border: none;
+      color: white;
+      font-size: 1.2rem;
+      cursor: pointer;
+      display: none;
+    }
+
+    main {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 24px 16px;
+    }
+
+    .card {
+      background: var(--card);
+      border-radius: 20px;
+      padding: 36px 28px;
+      max-width: 680px;
+      width: 100%;
+      box-shadow: 0 10px 30px rgba(67, 72, 168, 0.08);
+      text-align: center;
+    }
+
+    .avatar {
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      background: #E0E2F5;
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 52px;
+      margin: 0 auto 20px;
+    }
+
+    h1 {
+      font-size: 1.6rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      margin-bottom: 6px;
+    }
+
+    .subtitle {
+      font-size: 0.95rem;
+      color: var(--text-sub);
+      font-weight: 500;
+      margin-bottom: 18px;
+    }
+
+    .bio {
+      font-size: 0.95rem;
+      color: var(--text-sub);
+      line-height: 1.6;
+      margin-bottom: 28px;
+    }
+
+    .btn-group {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      background: var(--primary);
+      color: white;
+      border: none;
+      border-radius: 24px;
+      padding: 10px 22px;
+      font-size: 0.95rem;
+      font-weight: 500;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: background 0.2s, transform 0.1s;
+    }
+
+    .btn:hover {
+      background: var(--primary-dark);
+      transform: translateY(-1px);
+    }
+
+    .section-title {
+      color: var(--primary);
+      font-size: 1.15rem;
+      font-weight: 700;
+      text-align: left;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .group-label {
+      text-align: left;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-sub);
+      margin: 16px 0 8px;
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 8px;
+    }
+
+    .chip {
+      background: var(--chip-bg);
+      color: var(--primary);
+      border-radius: 12px;
+      padding: 6px 14px;
+      font-size: 0.8rem;
+      font-weight: 500;
+    }
+
+    .project-card {
+      background: #FAFAFD;
+      border: 1px solid #ECEEF8;
+      border-radius: 14px;
+      padding: 18px;
+      text-align: left;
+      margin-bottom: 16px;
+    }
+
+    .project-card h3 {
+      font-size: 1.05rem;
+      color: var(--primary);
+      margin-bottom: 6px;
+    }
+
+    .project-card p {
+      font-size: 0.88rem;
+      color: var(--text-sub);
+      line-height: 1.5;
+      margin-bottom: 12px;
+    }
+
+    .page {
+      display: none;
+      width: 100%;
+    }
+
+    .active {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <button class="back-btn" id="backBtn" onclick="showPage('home')">
+      <i class="fa-solid fa-arrow-left"></i>
+    </button>
+    <span id="pageTitle">My Portfolio</span>
+  </header>
+
+  <main>
+    <!-- HOME PAGE -->
+    <div id="home" class="page active card">
+      <div class="avatar">
+        <i class="fa-solid fa-user"></i>
+      </div>
+      <h1>M. DINESH KUMAR REDDY</h1>
+      <p class="subtitle">B.Tech • Computer Science & Engineering</p>
+      <p class="bio">
+        Aspiring Software Engineer passionate about building scalable web and mobile applications,
+        machine learning systems, and intuitive user interfaces.
+      </p>
+      <div class="btn-group">
+        <button class="btn" onclick="showPage('about')">
+          <i class="fa-solid fa-circle-info"></i> About Me
+        </button>
+        <button class="btn" onclick="showPage('projects')">
+          <i class="fa-solid fa-code"></i> My Projects
+        </button>
+      </div>
+    </div>
+
+    <!-- ABOUT PAGE -->
+    <div id="about" class="page card">
+      <div class="section-title">
+        <i class="fa-solid fa-graduation-cap"></i> Education & Background
+      </div>
+      <p class="bio" style="text-align: left; margin-bottom: 16px;">
+        I am a Computer Science student at CR Rao AIMSCS with a strong foundation in software engineering
+        processes, algorithms, and full-stack development. I enjoy tackling complex architectural problems
+        and developing clean, responsive interfaces.
+      </p>
+
+      <div class="section-title" style="margin-top: 24px;">
+        <i class="fa-solid fa-lightbulb"></i> Areas of Expertise & Skills
+      </div>
+
+      <div class="group-label">Programming Languages</div>
+      <div class="chips">
+        <span class="chip">C</span>
+        <span class="chip">Java</span>
+        <span class="chip">Python</span>
+        <span class="chip">Dart</span>
+        <span class="chip">JavaScript</span>
+      </div>
+
+      <div class="group-label">Frameworks & Tools</div>
+      <div class="chips">
+        <span class="chip">Flutter</span>
+        <span class="chip">Node.js</span>
+        <span class="chip">Git / GitHub</span>
+        <span class="chip">Docker</span>
+        <span class="chip">Linux</span>
+      </div>
+
+      <div class="group-label">Core Competencies</div>
+      <div class="chips">
+        <span class="chip">Data Structures & Algorithms</span>
+        <span class="chip">Automata Theory</span>
+        <span class="chip">Software Engineering</span>
+        <span class="chip">Machine Learning</span>
+      </div>
+
+      <div style="margin-top: 28px; text-align: center;">
+        <button class="btn" onclick="showPage('home')">Back to Home</button>
+      </div>
+    </div>
+
+    <!-- PROJECTS PAGE -->
+    <div id="projects" class="page card">
+      <div class="project-card">
+        <h3>Movie Recommendation System</h3>
+        <p>A Python-based machine learning project that leverages dataset visualization and user preference modeling to deliver personalized movie suggestions.</p>
+        <div class="chips">
+          <span class="chip">Python</span>
+          <span class="chip">Pandas</span>
+          <span class="chip">Scikit-Learn</span>
+          <span class="chip">Data Visualization</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <h3>Deep-Fake Image Generation</h3>
+        <p>An end-to-end generative pipeline implementing Deep Convolutional Generative Adversarial Networks (DCGAN) for synthetic image synthesis and analysis.</p>
+        <div class="chips">
+          <span class="chip">Python</span>
+          <span class="chip">PyTorch / TensorFlow</span>
+          <span class="chip">DCGAN</span>
+          <span class="chip">Computer Vision</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <h3>Cross-Platform Portfolio Web App</h3>
+        <p>A modular, responsive portfolio built using Flutter Web to showcase professional background, coursework, and technical projects.</p>
+        <div class="chips">
+          <span class="chip">Flutter</span>
+          <span class="chip">Dart</span>
+          <span class="chip">Responsive Web Design</span>
+          <span class="chip">GitHub Pages</span>
+        </div>
+      </div>
+
+      <div style="margin-top: 24px; text-align: center;">
+        <button class="btn" onclick="showPage('home')">Back to Home</button>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    function showPage(pageId) {
+      document.querySelectorAll('.page').forEach(el => el.classList.remove('active'));
+      document.getElementById(pageId).classList.add('active');
+
+      const backBtn = document.getElementById('backBtn');
+      const title = document.getElementById('pageTitle');
+
+      if (pageId === 'home') {
+        backBtn.style.display = 'none';
+        title.innerText = 'My Portfolio';
+      } else if (pageId === 'about') {
+        backBtn.style.display = 'block';
+        title.innerText = 'About Me';
+      } else if (pageId === 'projects') {
+        backBtn.style.display = 'block';
+        title.innerText = 'My Projects';
+      }
+    }
+  </script>
+</body>
+</html>
